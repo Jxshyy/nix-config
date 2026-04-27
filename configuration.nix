@@ -14,60 +14,33 @@
 
   time.timeZone = "Europe/London";
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
-#    services.xserver = {
-#  	enable = true;
-#  	autoRepeatDelay = 200;
-#  	autoRepeatInterval = 30;
-#  	windowManager.qtile.enable = true;
-#    };
-
   services.displayManager.ly.enable = true;
-
-  programs.hyprland = { 
-	enable = true;
-	xwayland.enable = true;
-  };
-  # Enable sound.
-  # services.pulseaudio.enable = true;
-  # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  # };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.josh = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    packages = with pkgs; [
-      tree
-    ];
-  };
-
-  # programs.firefox.enable = true;
 
   nixpkgs.config.allowUnfree = true; 
   environment.systemPackages = with pkgs; [
+    # Terminal packages
+    ghostty
     neovim
     wget
     git
-    waybar
+    _1password-cli
+    fzf
+    zoxide
+
+    # Hyprland packages
     kitty
-    ghostty
+    waybar
     hyprpaper
     wofi
     brave
     _1password-gui
-    _1password-cli
     wl-clipboard
 
     # Neovim Packages
@@ -92,7 +65,30 @@
     nixpkgs-fmt
   ];
 
-  # Enable the OpenSSH daemon.
+  programs = {
+    hyprland = { 
+    enable = true;
+    xwayland.enable = true;
+    };
+
+    _1password = {
+      enable = true;
+    };
+
+    _1password-gui = {
+      enable = true;
+      polkitPolicyOwners = [ "josh" ];
+    };
+  };
+
+  users.users.josh = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "onepassword" ];
+    packages = with pkgs; [
+      tree
+    ];
+  };
+
   services.openssh.enable = true;
 
   fonts.packages = with pkgs; [
@@ -106,4 +102,11 @@
   system.stateVersion = "25.11"; # Did you read the comment?
 
 }
+
+  # services.pulseaudio.enable = true;
+  # OR
+  # services.pipewire = {
+  #   enable = true;
+  #   pulse.enable = true;
+  # };
 

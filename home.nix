@@ -9,32 +9,47 @@
     lazygit
   ];
 
-  programs.git = {
-    enable = true;
-    settings = {
-      user.name = "Josh Cowen";
-      user.email = "josh.cowen@icloud.com";
-      init.defaultBranch = "main";
-      pull.rebase = false;
+  programs = {
+    git = {
+      enable = true;
+      settings = {
+        user.name = "Josh Cowen";
+        user.email = "josh.cowen@icloud.com";
+        init.defaultBranch = "main";
+        pull.rebase = false;
+      };
     };
-  };
-	programs.bash = {
-		enable = true;
-		shellAliases = {
-			btw = "echo I use nixos, btw";
-		};
-		profileExtra = ''
-			if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-				exec hyprland
-			fi
-		'';
-	};
-  programs.chromium = {
-    enable = true;
-    package = pkgs.brave;
-    extensions = [
-      { id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa"; }
-      { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
-    ];
+
+    bash = {
+      enable = true;
+      shellAliases = {
+        btw = "echo I use nixos, btw";
+      };
+      profileExtra = ''
+        if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+          exec hyprland
+        fi
+      '';
+      sessionVariables = {
+        SSH_AUTH_SOCK=/home/josh/.1password/agent.sock;
+      };
+    };
+
+    ssh = {
+      enable = true;
+      extraConfig = ''
+        Host *
+          IdentityAgent "~/.1password/agent.sock"
+      '';
+    };
+
+    chromium = {
+      enable = true;
+      package = pkgs.brave;
+      extensions = [
+        { id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa"; }
+        { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
+      ];
+    };
   };
 }
