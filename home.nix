@@ -26,6 +26,7 @@
       enable = true;
       shellAliases = {
         btw = "echo I use nixos, btw";
+        reload = "sudo nixos-rebuild switch --flake /home/josh/nixos-config/";
       };
       profileExtra = ''
         if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
@@ -59,7 +60,6 @@
       enableBashIntegration = true;
 
       settings = {
-        add_newline = false;
       };
     };
   };
