@@ -7,6 +7,8 @@
   home.packages = with pkgs; [
     claude-code
     lazygit
+    spotify
+    starship
   ];
 
   programs = {
