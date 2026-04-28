@@ -9,6 +9,7 @@
     lazygit
     spotify
     starship
+    hyprcursor
   ];
 
   programs = {
@@ -27,6 +28,7 @@
       shellAliases = {
         btw = "echo I use nixos, btw";
         reload = "sudo nixos-rebuild switch --flake /home/josh/nixos-config/";
+        z = "zoxide";
       };
       profileExtra = ''
         if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
@@ -49,18 +51,18 @@
     chromium = {
       enable = true;
       package = pkgs.brave;
-      extensions = [
-        { id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa"; }
-        { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
-      ];
     };
 
     starship = {
       enable = true;
       enableBashIntegration = true;
-
       settings = {
       };
+    };
+
+    zoxide = {
+      enable = true;
+      enableBashIntegration = true;
     };
   };
 }
