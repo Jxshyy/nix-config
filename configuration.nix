@@ -34,6 +34,7 @@
     fzf
     zoxide
     unzip
+    gitleaks
 
     # Hyprland packages
     kitty

@@ -27,7 +27,7 @@
       enable = true;
       shellAliases = {
         btw = "echo I use nixos, btw";
-        reload = "sudo nixos-rebuild switch --flake /home/josh/nixos-config/";
+        reload = "sudo nixos-rebuild switch --flake /home/josh/nix-config/";
         z = "zoxide";
       };
       profileExtra = ''
