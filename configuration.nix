@@ -14,16 +14,45 @@
 
   time.timeZone = "Europe/London";
 
-  hardware.graphics.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia = {
-    modesetting.enable = true;
-    open = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
-  services.displayManager.ly.enable = true;
+  hardware = {
+    graphics.enable = true;
+    nvidia = {
+      modesetting.enable = true;
+      open = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
 
-  nixpkgs.config.allowUnfree = true; 
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+      settings = {
+        General = {
+          Experimental = true;
+          FastConnectable = true;
+        };
+        Policy = {
+          AutoEnable = true;
+        };
+      };
+    };
+
+    i2c = {
+      enable = true;
+      group = "i2c";
+    };
+  };
+
+  services = {
+    xserver.videoDrivers = [ "nvidia" ];
+    displayManager.ly.enable = true;
+    openssh.enable = true;
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+    };
+  };
+
+  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # Terminal packages
     ghostty
@@ -91,8 +120,6 @@
     ];
   };
 
-  services.openssh.enable = true;
-
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
@@ -115,11 +142,3 @@
   system.stateVersion = "25.11"; # Did you read the comment?
 
 }
-
-  # services.pulseaudio.enable = true;
-  # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  # };
-
