@@ -5,11 +5,15 @@
 	home.homeDirectory = "/home/josh";
 	home.stateVersion = "25.11";
   home.packages = with pkgs; [
+    # Terminal packages
     claude-code
     lazygit
-    spotify
     starship
     hyprcursor
+    shellcheck
+
+    # GUI Packages
+    spotify
   ];
 
   programs = {
