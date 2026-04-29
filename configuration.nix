@@ -79,9 +79,11 @@
     waybar
     hyprpaper
     hyprlock
+    hypridle
     wofi
     _1password-gui
     wl-clipboard
+    ddcutil
 
     # Neovim Packages
     nodejs
@@ -103,6 +105,9 @@
     black
     isort
     nixpkgs-fmt
+
+    # QoL services
+    bluetui
   ];
 
   programs = {
