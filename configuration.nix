@@ -1,10 +1,19 @@
 { config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports =
     [ 
       ./hardware-configuration.nix
     ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -97,9 +106,9 @@
   ];
 
   programs = {
-    hyprland = { 
-    enable = true;
-    xwayland.enable = true;
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
     };
 
     _1password = {
@@ -114,7 +123,11 @@
 
   users.users.josh = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "onepassword" ];
+    extraGroups = [
+      "wheel"
+      "onepassword"
+      "i2c"
+    ];
     packages = with pkgs; [
       tree
     ];
@@ -135,7 +148,10 @@
     NewTabPageLocation = "https://homepage.cowenjones.co.uk";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
   # and migrated your data accordingly.
