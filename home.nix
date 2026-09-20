@@ -47,8 +47,8 @@
     ssh = {
       enable = true;
       extraConfig = ''
-        Host *
           IdentityAgent "~/.1password/agent.sock"
+          setEnv TERM=xterm-256color
       '';
     };
 
