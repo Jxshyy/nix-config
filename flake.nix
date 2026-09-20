@@ -12,7 +12,7 @@
 		nixosConfigurations.mustang = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [
-				./configuration.nix
+				./hosts/mustang/configuration.nix
 				home-manager.nixosModules.home-manager
 				{
 					home-manager = {
