@@ -6,8 +6,8 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./modules/ly.nix
     ../../modules/common.nix
+    ../../modules/hyprland.nix
   ];
 
   networking.hostName = "mustang"; # Define your hostname.
