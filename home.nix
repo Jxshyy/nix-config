@@ -3,7 +3,7 @@
 {
 	home.username = "josh";
 	home.homeDirectory = "/home/josh";
-	home.stateVersion = "25.11";
+	home.stateVersion = "26.05";
   home.packages = with pkgs; [
     # Terminal packages
     claude-code
@@ -63,6 +63,7 @@
       enable = true;
       enableBashIntegration = true;
       settings = {
+        add_newline = true;
       };
     };
 
@@ -70,5 +71,13 @@
       enable = true;
       enableBashIntegration = true;
     };
+  };
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    configType = "lua";
+    # settings
+
+    
   };
 }
