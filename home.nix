@@ -36,11 +36,6 @@
         rebuild = "sudo nixos-rebuild switch --flake ~/nix-config#mustang";
         update = "nix flake update ~/nix-config && sudo nixos-rebuild switch --flake ~/nix-config#mustang";
       };
-      profileExtra = ''
-        if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-          exec hyprland
-        fi
-      '';
       sessionVariables = {
         SSH_AUTH_SOCK=/home/josh/.1password/agent.sock;
       };
