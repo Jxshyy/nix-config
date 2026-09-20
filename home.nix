@@ -33,6 +33,8 @@
         btw = "echo I use nixos, btw";
         reload = "sudo nixos-rebuild switch --flake /home/josh/nix-config/";
         z = "zoxide";
+        rebuild = "sudo nixos-rebuild switch --flake ~/nix-config#mustang";
+        update = "nix flake update ~/nix-config && sudo nixos-rebuild switch --flake ~/nix-config#mustang";
       };
       profileExtra = ''
         if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
