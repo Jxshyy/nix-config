@@ -73,11 +73,11 @@
     };
   };
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    configType = "lua";
-    # settings
-
-    
-  };
+  # Disabled for now — home-manager would overwrite the hand-written
+  # ~/.config/hypr/hyprland.lua with an empty generated one. Re-enable
+  # once that file's content is migrated into extraConfig/settings below.
+  # wayland.windowManager.hyprland = {
+  #   enable = true;
+  #   configType = "lua";
+  # };
 }
