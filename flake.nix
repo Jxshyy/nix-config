@@ -1,5 +1,5 @@
 {
-	description = "NixOS first installation";
+  description = "NixOS first installation";
 	inputs = {
 		nixpkgs.url = "nixpkgs/nixos-26.05";
     home-manager = {
