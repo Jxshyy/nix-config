@@ -7,6 +7,7 @@
       z = "zoxide";
       rebuild = "sudo nixos-rebuild switch --flake ~/nix-config#mustang";
       update = "nix flake update ~/nix-config && sudo nixos-rebuild switch --flake ~/nix-config#mustang";
+      check = "nix flake check";
     };
     sessionVariables = {
       SSH_AUTH_SOCK = /home/josh/.1password/agent.sock;
