@@ -11,13 +11,20 @@
     starship
     hyprcursor
     shellcheck
+    unzip
+    gitleaks
 
     # GUI Packages
     spotify
+    obsidian
+    # TUI Packages
+
+    bluetui
   ];
 
   imports = [
     ./modules/programs
+    ./modules/apps/ghostty.nix
   ];
 
   # Disabled for now — home-manager would overwrite the hand-written

@@ -8,5 +8,7 @@
     ./ssh.nix
     ./starship.nix
     ./zoxide.nix
+    ./bat.nix
+    ./fzf.nix
   ];
 }

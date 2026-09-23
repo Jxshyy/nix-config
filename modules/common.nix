@@ -42,14 +42,12 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # Terminal packages
-    ghostty
     neovim
     wget
     git
     _1password-cli
     fzf
     unzip
-    gitleaks
     wiremix
 
     # Hyprland packages
@@ -61,7 +59,6 @@
     _1password-gui
     wl-clipboard
     ddcutil
-    obsidian
 
     # Neovim Packages
     nodejs
@@ -83,9 +80,6 @@
     black
     isort
     nixpkgs-fmt
-
-    # QoL services
-    bluetui
   ];
 
   programs = {
