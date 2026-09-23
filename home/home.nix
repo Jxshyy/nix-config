@@ -17,8 +17,7 @@
   ];
 
   imports = [
-    ./modules/programs/bash.nix
-    ./modules/programs/git.nix
+    ./modules/programs
   ];
 
   # Disabled for now — home-manager would overwrite the hand-written
