@@ -4,6 +4,11 @@
 }:
 
 {
+  imports = [
+    ./braveExtensions.nix
+    ./fonts.nix
+  ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -43,12 +48,11 @@
     git
     _1password-cli
     fzf
-    zoxide
     unzip
     gitleaks
+    wiremix
 
     # Hyprland packages
-    kitty
     waybar
     hyprpaper
     hyprlock
@@ -106,20 +110,7 @@
     ];
   };
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
 
-  environment.etc."brave/policies/managed/extensions.json".text = builtins.toJSON {
-    ExtensionInstallForcelist = [
-      "aeblfdkhhhdcdjpifhhbdiojplfjncoa;https://clients2.google.com/service/update2/crx"
-      "fbdlhcdkmaleonkhckokleapdgilbcph;https://clients2.google.com/service/update2/crx"
-    ];
-    HomepageLocation = "https://homepage.cowenjones.co.uk";
-    HomepageIsNewTabPage = false;
-    ShowHomeButton = true;
-    NewTabPageLocation = "https://homepage.cowenjones.co.uk";
-  };
 
   nix.settings.experimental-features = [
     "nix-command"
