@@ -52,7 +52,6 @@
 
     # Hyprland packages
     waybar
-    hyprpaper
     hyprlock
     hypridle
     wofi
