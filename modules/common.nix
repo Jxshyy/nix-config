@@ -54,6 +54,7 @@
     waybar
     hyprlock
     hypridle
+    hyprpaper
     wofi
     _1password-gui
     wl-clipboard

@@ -8,13 +8,13 @@
         {
           monitor = "DP-2";
           fit_mode = "cover";
-          path = "../../wallpapers/wall2.jpg";
+          path = "~/nix-config/home/wallpapers/wall2.jpg";
         }
 
         {
           monitor = "DP-3";
           fit_mode = "cover";
-          path = "../../wallpapers/wall1.jpg";
+          path = "~/nix-config/home/wallpapers/wall1.png";
         }
       ];
     };
