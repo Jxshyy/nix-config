@@ -6,13 +6,13 @@
     settings = {
       wallpaper = [
         {
-          monitor = "DP-2";
+          monitor = "DP-5";
           fit_mode = "cover";
-          path = "~/nix-config/home/wallpapers/wall2.jpg";
+          path = "~/nix-config/home/wallpapers/wall3.jpg";
         }
 
         {
-          monitor = "DP-3";
+          monitor = "DP-6";
           fit_mode = "cover";
           path = "~/nix-config/home/wallpapers/wall1.png";
         }

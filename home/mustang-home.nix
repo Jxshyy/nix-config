@@ -25,7 +25,8 @@
   imports = [
     ./modules/cli
     ./modules/apps/ghostty.nix
-    ./modules/hyprland/hyprpaper.nix
+    ./modules/hyprland/hyprland.nix
+    #   ./modules/hyprland/hyprpaper.nix
   ];
 
   # Disabled for now — home-manager would overwrite the hand-written
