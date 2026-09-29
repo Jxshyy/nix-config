@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./bash.nix
     ./git.nix
     ./lazygit.nix
     ./ssh.nix
