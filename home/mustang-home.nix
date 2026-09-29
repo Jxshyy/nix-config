@@ -7,7 +7,6 @@
   home.packages = with pkgs; [
     # Terminal packages
     claude-code
-    lazygit
     starship
     hyprcursor
     shellcheck
@@ -24,7 +23,7 @@
 
   imports = [
     ./modules/cli
-    ./modules/apps/ghostty.nix
+    ./modules/apps
     ./modules/hyprland/hyprland.nix
     #   ./modules/hyprland/hyprpaper.nix
   ];

@@ -6,6 +6,6 @@
     enableBashIntegration = true;
     settings = {
       theme = "TokyoNight";
-  };
+    };
   };
 }
