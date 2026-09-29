@@ -55,7 +55,14 @@
 
   homebrew = {
     enable = true;
+    taps = [
+      "herald-email/herald"
+    ];
+    brews = [
+      "herald-email/herald/herald"
+    ];
     casks = [
+      "bambu-studio"
       "balenaetcher"
       "spotify"
       "vlc"
