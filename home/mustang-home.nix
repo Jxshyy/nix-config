@@ -24,6 +24,7 @@
   imports = [
     ./modules/cli
     ./modules/apps
+    ./modules/tui/aerc.nix
     ./modules/hyprland/hyprland.nix
     #   ./modules/hyprland/hyprpaper.nix
   ];
