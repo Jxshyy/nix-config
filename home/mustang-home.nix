@@ -24,9 +24,12 @@
 
   imports = [
     ./modules/cli
+    ./modules/cli/bash.nix
     ./modules/apps
     ./modules/tui/aerc.nix
     ./modules/hyprland/hyprland.nix
+    ./modules/services/ollama.nix
+    ./modules/services/hermes-agent.nix
     #   ./modules/hyprland/hyprpaper.nix
   ];
 

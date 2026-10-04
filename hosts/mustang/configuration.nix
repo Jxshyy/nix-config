@@ -24,6 +24,10 @@
   networking.hostName = "mustang"; # Define your hostname.
   networking.networkmanager.enable = true;
 
+  # Restrict CUDA builds (e.g. ollama's llama.cpp backend) to this machine's
+  # actual GPU (RTX 4070 Ti, sm_89) instead of nixpkgs' default 9-architecture list.
+  nixpkgs.config.cudaCapabilities = [ "8.9" ];
+
   hardware = {
     graphics.enable = true;
     nvidia = {
@@ -46,6 +50,7 @@
     extraGroups = [
       "i2c"
     ];
+    linger = true; # keep the hermes-agent user service/gateway alive after logout
   };
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
   # and migrated your data accordingly.

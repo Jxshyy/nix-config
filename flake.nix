@@ -19,9 +19,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
+
+    hermes-agent = {
+      url = "github:NousResearch/hermes-agent";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nix-darwin, nix-homebrew, home-manager, home-manager-darwin, ... }@inputs:
+  outputs = { self, nixpkgs, nix-darwin, nix-homebrew, home-manager, home-manager-darwin, hermes-agent, ... }@inputs:
     {
       nixosConfigurations.mustang = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -33,6 +38,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.josh = import ./home/mustang-home.nix;
+              sharedModules = [ hermes-agent.homeManagerModules.default ];
               backupFileExtension = "backup";
             };
           }
