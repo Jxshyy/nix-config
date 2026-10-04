@@ -11,6 +11,16 @@
     ../../modules/ly.nix
   ];
 
+  nix = {
+    optimise.automatic = true;
+    settings.auto-optimise-store = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+  };
+
   networking.hostName = "mustang"; # Define your hostname.
   networking.networkmanager.enable = true;
 
@@ -34,7 +44,7 @@
 
   users.users.josh = {
     extraGroups = [
-    "i2c"
+      "i2c"
     ];
   };
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
