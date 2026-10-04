@@ -12,6 +12,7 @@
     shellcheck
     unzip
     gitleaks
+    htop
 
     # GUI Packages
     spotify
