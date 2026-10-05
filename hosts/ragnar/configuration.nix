@@ -1,7 +1,11 @@
 { pkgs, self, ... }: {
   nix.settings.experimental-features = "nix-command flakes";
 
-  programs.zsh.enable = true;
+  programs = {
+    _1password-gui.enable = true;
+    _1password.enable = true;
+    zsh.enable = true;
+  };
 
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
@@ -13,7 +17,6 @@
       fzf
       nerd-fonts.jetbrains-mono
       claude-code
-      _1password-cli
       ripgrep
       bat
       nmap
@@ -23,7 +26,6 @@
       # GUI apps
       obsidian
       brave
-      _1password-gui
       libreoffice-bin
       rectangle
       proton-vpn
