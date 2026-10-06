@@ -13,8 +13,6 @@
   environment.systemPackages = with pkgs;
     [
       # Terminal packages
-      ghostty-bin
-      fzf
       nerd-fonts.jetbrains-mono
       claude-code
       ripgrep
@@ -24,9 +22,6 @@
       terraform
 
       # GUI apps
-      obsidian
-      brave
-      libreoffice-bin
       rectangle
       proton-vpn
 
