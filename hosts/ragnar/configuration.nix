@@ -29,6 +29,7 @@
       libreoffice-bin
       rectangle
       proton-vpn
+      netbird
 
       # Neovim Packages
       neovim
@@ -59,6 +60,7 @@
     enable = true;
     taps = [
       "herald-email/herald"
+      "netbirdio/tap"
     ];
     brews = [
       "herald-email/herald/herald"
@@ -69,6 +71,8 @@
       "spotify"
       "vlc"
       "rustdesk"
+      "discord"
+      "netbirdio/tap/netbird-ui"
     ];
     onActivation.cleanup = "zap";
     masApps = {
