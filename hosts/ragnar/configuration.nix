@@ -1,5 +1,17 @@
 { pkgs, self, ... }: {
-  nix.settings.experimental-features = "nix-command flakes";
+  nix = {
+    settings.experimental-features = "nix-command flakes";
+
+    gc = {
+      automatic = true;
+      interval = {
+        Weekday = 0;
+        Hour = 3;
+        Minute = 3;
+      };
+      options = "--delete-older-than 30d";
+    };
+  };
 
   programs = {
     _1password-gui.enable = true;
