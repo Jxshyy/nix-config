@@ -3,23 +3,37 @@
 {
   programs = {
     hermes-agent.enable = true;
-    hermes-agent.desktop.enable = true;
   };
 
   services.hermes-agent = {
     enable = true;
     gateway.enable = true;
     settings = {
-      toolsets = [ "all" ];
+      messaging.telegram = {
+          enabled = true;
+          allowed_users = [ 8708972339 ];
+        };
+
+          toolsets = [
+      "file"
+      "memory"
+      "skills"
+      "clarify"
+      ];
       model = {
-        # "ollama" is a registered alias for the generic "custom" OpenAI-compatible
-        # provider; must match a model from services.ollama.loadModels in ./ollama.nix
-        default = "qwen3:30b-a3b";
+        default = "hermes3:8b";
         base_url = "http://127.0.0.1:11434/v1";
       };
-      # Ollama ignores the key's value but the OpenAI-compatible client requires one set
       environment.OPENAI_API_KEY = "ollama";
+      environment.OBSIDIAN_VAULT_PATH = "/home/josh/HomeLabDocs";
+      environmentFiles = [ "/home/josh/.hermes/.env" ];
     };
+    extraPackages = with pkgs; [
+      nodejs
+      ripgrep
+      ffmpeg
+    ];
+    extraDependencyGroups = [ "messaging" ];
 
     extraPlugins = [
       (pkgs.fetchFromGitHub {

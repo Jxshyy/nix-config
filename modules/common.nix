@@ -32,7 +32,16 @@
   };
 
   services = {
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = false;
+        PermitRootLogin = "no";
+        AllowUsers = [ "josh" ];
+        MaxAuthTries = 3;
+      };
+    };
+
     pipewire = {
       enable = true;
       pulse.enable = true;
@@ -99,12 +108,10 @@
       "wheel"
       "onepassword"
     ];
-    packages = with pkgs; [
-      tree
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHXYRcFHgOg5iOn2dVYPrZ/O0WGPhKDbKbzQbjtJFlyU"
     ];
   };
-
-
 
   nix.settings.experimental-features = [
     "nix-command"

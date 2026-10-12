@@ -13,6 +13,10 @@
     unzip
     gitleaks
     htop
+    ripgrep
+    ffmpeg
+    gh
+    tree
 
     # GUI Packages
     spotify
@@ -28,8 +32,6 @@
     ./modules/apps
     ./modules/tui/aerc.nix
     ./modules/hyprland/hyprland.nix
-    ./modules/services/ollama.nix
-    ./modules/services/hermes-agent.nix
     #   ./modules/hyprland/hyprpaper.nix
   ];
 
