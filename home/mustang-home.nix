@@ -7,7 +7,6 @@
   home.packages = with pkgs; [
     # Terminal packages
     claude-code
-    starship
     hyprcursor
     shellcheck
     unzip
@@ -17,6 +16,7 @@
     ffmpeg
     gh
     tree
+    netbird
 
     # GUI Packages
     spotify
@@ -30,7 +30,6 @@
     ./modules/cli
     ./modules/cli/bash.nix
     ./modules/apps
-    ./modules/apps/prism-launcher.nix
     ./modules/tui/aerc.nix
     ./modules/hyprland/hyprland.nix
     #   ./modules/hyprland/hyprpaper.nix
