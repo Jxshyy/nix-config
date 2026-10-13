@@ -16,7 +16,6 @@
     ffmpeg
     gh
     tree
-    netbird
 
     # GUI Packages
     spotify

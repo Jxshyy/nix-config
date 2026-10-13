@@ -9,6 +9,7 @@
     ../../modules/common.nix
     ../../modules/hyprland.nix
     ../../modules/ly.nix
+    ../../modules/netbird.nix
   ];
 
   nix = {
