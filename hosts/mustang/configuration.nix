@@ -50,6 +50,8 @@
   users.users.josh = {
     extraGroups = [
       "i2c"
+      "netbird-wt0"
+      "wheel"
     ];
     linger = true; # keep the hermes-agent user service/gateway alive after logout
   };
